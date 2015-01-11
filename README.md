@@ -1,10 +1,6 @@
-## Marist College Student Government Association
-
-# Information Technology Documentation
+# Marist College Student Government Association: Information Technology Documentation
 
 - **Authors**: [Ethan Turkeltaub](https://github.com/eturk), [David Gunter](https://github.com/verkaufer)
-
-***
 
 ## Introduction
 
