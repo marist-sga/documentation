@@ -7,7 +7,7 @@
 
 ### Constitution
 
-Article II, Section 6 of the [Constitution](https://github.com/marist-sga/documentation/blob/master/Documents/Constitution.pdf)
+Article II, Section 6 of the [Constitution](https://github.com/marist-sga/documentation/blob/master/Documents/Constitution.docx)
 
 > 1. Shall perform all the functions enumerated in the Student Government Bylaws regarding the Chief Information Officer and those of the Information Technology Council.
 > 2. Shall work closely with the Marist College Information Technology Office.
@@ -19,7 +19,7 @@ Article II, Section 6 of the [Constitution](https://github.com/marist-sga/docume
 
 ### Bylaws
 
-Article III, Section 4, Sub-section E of the [Bylaws](https://github.com/marist-sga/documentation/blob/master/Documents/Bylaws.pdf)
+Article III, Section 4, Sub-section E of the [Bylaws](https://github.com/marist-sga/documentation/blob/master/Documents/Bylaws.docx)
 
 > 1. Will act as a liaison between Marist College Information Technology and Student Government.
 > 2. Will act as head Webmaster of the Student Government Association website.
