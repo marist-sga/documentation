@@ -6,7 +6,7 @@ At the end of the semester, Student Activities will ask for all of the event eva
 ## Event Evaluation Data
 
 ```sql
-SELECT clubs.name AS ClubName, eventEvaluations. *
+SELECT clubs.name AS ClubName, events.eventTitle, events.meetingDate, eventEvaluations. *
 FROM eventEvaluations
 JOIN  `events` ON eventEvaluations.eventID = events.id
 JOIN clubs ON events.clubID = clubs.clubID
