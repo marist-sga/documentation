@@ -1,6 +1,6 @@
 # End of Semester Reports
 
-At the end of the semester, Student Activities will ask for all of the event evalutations for clubs and for offier login statistics. Run these queries in phpMyAdmin and export as CSV (_not_ MS Excel) delimited by a comma (`,`) and with headers.
+At the end of the semester, Student Activities will ask for all of the event evaluations for clubs and for officer login statistics. Run these queries in phpMyAdmin and export as CSV (_not_ MS Excel) delimited by a comma (`,`) and with headers.
 
 
 ## Event Evaluation Data
