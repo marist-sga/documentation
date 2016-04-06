@@ -1,0 +1,596 @@
+\documentclass[11pt]{report}
+
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{xcolor}
+
+\usepackage [english]{babel}
+\usepackage [autostyle, english = american]{csquotes}
+\MakeOuterQuote{"}
+
+\lstset{
+	frame=tb,
+    basicstyle={\small\ttfamily},
+    breaklines=true,
+   	%postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}},
+    upquote=true
+}
+
+\begin{document}
+\title{\textbf{Chief Information Officer Manual} \\ Marist College Student Government Association}
+\date{April 24, 2016}
+\author{Ethan Turkeltaub}
+\maketitle
+
+\tableofcontents
+
+\chapter{Introduction}
+
+	First of all, congratulations and welcome! Taking on this position is a big responsibility, and you can really make a lot of big changes at Marist through the SGA.
+	
+	This manual will explain what the CIO position is and how to perform your duties. It also includes how-to information, an FAQ, and some key contacts.
+	
+	\hfill
+
+	The Chief Information Officer (CIO) of the Marist College Student Government Association (SGA) is responsible for maintaining all of the technological services that are required for the SGA and club activities. This involves keeping up the SGA web applications (ClubDash, club websites, etc. — see \textit{Responsibilities}), maintaining the physical technology the SGA uses (the computers in the office, etc.), and anything else related to technology..
+	
+	CIO is one of the more important position in the SGA. It's also one of the positions that requires the most background knowledge to perform. You need to have a good knowledge of web development (mostly PHP and Ruby to lesser extent), databases (MySQL/MariaDB), server management (SuSE and RHEL), and web servers (Apache, Nginx). Additionally, you need to have good communication skills (both within the SGA and outside) and organizational skills.
+	
+	There's also a serious time commitment when you're in the SGA, particularly with the CIO position. Besides the weekly meetings and office hours, you'll probably need to do a lot of work to maintain the systems and respond to user requests. Make sure you have enough time to perform your duties. Obviously school work comes first, but you'll spend almost as much time doing things for SGA.
+	
+	When you take on the CIO position, you can choose one of two different paths: you can simply coast and maintain what the SGA currently has, following what's in this manual. Or, you can be proactive and make solutions to the problems you find in the SGA. The choice is up to you --- but I'd recommend the latter.
+	
+	\begin{flushright}
+		\textit{Ethan Turkeltaub}
+		
+		Chief Information Officer, 2014--2016
+	\end{flushright}
+
+	
+
+\chapter{Responsibilities}
+	\section{Bylaws}
+		\textit{The following is from the Student Government Bylaws. It outlines the responsibilities and privileges of the CIO in the organization. What's listed here is up to date as of the date on the front of the manual, and may differ from the current Bylaws. You can find the up-to-date Bylaws with the current Parliamentarian.}
+	
+		\begin{enumerate}
+			\item{Will act as a liaison between Marist College Information Technology and Student Government.}
+			\item{Will act as head Webmaster of the Student Government Association website.}
+			\item{Will consult with the Chief of Public Affairs on the design and content of the Marist College Student Government website.}
+			\item{May have assistant webmasters to help design and maintain the Marist College Student Government website.}
+			\item{Will be responsible for maintaining the Student Government Association shared drive and making sure there is an archive of all files created during the administration.}
+			\item{Shall chair the Information Technology Council.}
+			\item{Will serve as a learning resource to all members of Student Government concerning matters dealing with computer technology and information processes.}
+			\item{Will hold a workshop/seminar in the beginning of the fall semester teaching club officers about what technology is available to them and how it may be used.}
+			\item{Will orient student leaders in how to use the computerized information systems needed for club functions, how to use the online priority point system, and how to use any other computer systems or software which student leaders may be required to use for Student Government or club business.}
+			\item{Will on a continual basis assess the current information processes of Student Government and propose improvements where needed.}
+			\item{Will work in coordination with the Vice President for Club Affairs in overseeing and setting standards for the design and creation of club websites.}
+			\item{Will meet on an as needed basis with the webmasters of the various clubs.}
+			\item{Will hold a seminar with the club webmasters at the beginning of the fall semester outlining the Student Government Standards for club websites.}
+			\item{Will report all happening, in the area of information technology weekly to the Cabinet.}
+			\item{
+				Is responsible for the appointment of a Deputy Chief Information Officer (DCIO), upon approval of the Senate.
+				\begin{enumerate}
+					\item{The DCIO shall be as familiar with the position as the CIO in order to assist in} daily operations.
+					\item{The DCIO shall be responsible to and report directly to the CIO.}
+					\item{The DCIO shall hold office hours at the discretion of the CIO.}
+					\item{Shall attend all meetings of the Information Technology Council.}
+					\item{Information Technology Council members may apply for the position of DCIO.}
+					\item{
+						In the event that the CIO can no longer carry out the duties of the office, either by resignation or impeachment, the DCIO shall become acting CIO until a permanent CIO can be appointed.
+						\begin{enumerate}
+							\item{The CIO can give temporary power to the DCIO should he/she decides to
+study abroad or need to take a sabbatical from his/her duties. }
+						\end{enumerate}
+					}
+				\end{enumerate}
+			}
+		\end{enumerate}
+	\section{Overview}
+		While the bylaws covers in broad strokes what the CIO position entails, there are a lot of other derivative duties that are required of the CIO.
+
+		\subsection{Web Applications}
+			A big responsibility is managing and developing the web applications for SGA and club functions. There are several that are currently running (see \textit{Web Applications}), but there is plenty of room and need for more (see \textit{Future Plans}).
+		
+		\subsection{Support}
+			Since the SGA makes these applications, the SGA needs to support them. While members of your IT Council will field requests, you should field some as well. They requests will range from club website access to web development requests.
+			
+		\subsection{Liaison between Student Government and Information Technology}
+			You need to also be the go-between for anything related to Marist IT for SGA. If Marist is planning on implementing a piece of technology that students will use, you need to be part of that process. This includes vetting the purchase, researching the product, and working with administrators on maintenance strategies.
+
+		\subsection{Support Student Government and Clubs with IT Matters}
+			If SGA or any club a technological solution to a problem, they'll usually consult with you. You don't need to solve every problem they give you, but at least point them in the right direction.
+
+\chapter{Web Applications}
+	The SGA runs several web applications. You are responsible for the maintenance and development of these applications.
+	
+	Provided is high-level usage information. For information on how to actually manage these applications on the server-side, check the GitHub repository for the application.
+
+	\section{ClubDash}
+		ClubDash is a club management system. It manages allocations, events, officers, and mailing lists. It is written in PHP using Laravel 4, and is using a MySQL database.
+		
+		\textit{\textbf{Note}: To do most of these actions, you'll want to switch to the "Administrator" club.}
+		
+		\subsection{Managing clubs}
+			\subsubsection{Creating a club}
+				To create a club, go to the "Admin Panel" section of the sidebar, go to the "Manage Clubs" page, and then click on "Create a Club". You'll need the club name, club ID, and the council they are a part of. The Club ID corresponds to the bank account code, and you can get this information from the Chief Financial Officer. You can get the council the club is a part of from the Vice President of Club Affairs.
+			
+			\subsubsection{Modifying or deleting a club}
+				Modifying or deleting a club requires direct access to the database. Log into phpMyAdmin, and go to the \texttt{clubs} table of the database and edit or delete the row corresponding to the club.
+		
+		\subsection{Managing officers}
+			\subsubsection{Adding an officer}
+				To add a officer, go to the "Admin Panel" section of the sidebar and click on "Manually Add Officer". You'll need the CWID, position, and club name of the officer.
+	
+			\subsubsection{Modifying or deleting an officer}		
+				Modifying or deleting an officer is a little trickier. You'll need to add yourself as an officer of the club in question (through the same process is shown above) and switch to that club. Then, go to "Officer Panel" and click on "Officer Roster". To change the position of an officer, click on their position in the row. To delete an officer, click on the red \texttt{X}.
+		
+		\subsection{Managing events}
+			There generally isn't much you'll need to do with events. Just be aware of the process (how to add events, how to take attendance, event evaluations, etc).
+		
+		\subsection{Managing allocations}
+			Every semester (or so), there will be club allocations. This means clubs will submit to the CFO via ClubDash the funds they'll need for the coming year, line item by line item. Once they are submitted and reviewed, the clubs will probably get 50-75\% of the funds they request. The clubs will have a chance to reallocate to get a higher percentage.
+	
+			\subsubsection{Enabling/disabling allocations}
+				Generally, the CFO will be able to do this themselves. If not, go to the "Admin Panel" section of the sidebar, then to "ClubDash Settings". Go and set "Allocations" to "Enabled" (or "Disabled"), and make sure you have the allocation period and current semester set correctly.
+		
+		\subsection{Managing Club Tip Tuesday subscribers}
+			Club Tip Tuesday is a newsletter sent out by Student Life to club leaders every Tuesday.
+			
+			\subsubsection{Adding subscribers}
+				To add a person to the mailing list, click on "Admin Panel", then "Manage Club Tip Tuesday". Enter the person's CWID to add them.
+			
+			\subsubsection{Editing and removing subscribers}
+				You'll need to log into MailChimp (see 1Password for the credentials), and use their subscriber management tools to edit or delete them.
+				
+		\subsection{Priority Point and rosters reports}
+			Every semester, Student Life will need the club rosters and Priority Point reports. To get this information, you'll need to fetch the spreadsheets from the server.
+			
+			\hfill
+			
+			\begin{lstlisting}
+$ scp -r USERNAME@sga.marist.edu:/data/sga_webapps/htdocs/clubdash/app/storage/prioritypoints/SEMESTER/* reports/}	
+			\end{lstlisting}
+			
+			\hfill
+			
+			Of course, you'll need to replace \texttt{USERNAME} and \texttt{SEMESTER} with your Marist username and the current semester (e.g., \texttt{F2015} for the Fall of 2015).
+		
+		\subsection{Event evaluation data}
+			Student Life will also request event evaluation data in a format accessible by Microsoft Excel. You'll need to log into phpMyAdmin (see its section for log in details). Change to the SQL tab, and run the following query:
+			
+			\hfill
+			
+			\begin{lstlisting}
+SELECT clubs.name AS ClubName, events.eventTitle, events.meetingDate, eventEvaluations. *
+FROM eventEvaluations
+JOIN  `events` ON eventEvaluations.eventID = events.id
+JOIN clubs ON events.clubID = clubs.clubID
+ORDER BY clubs.name;	
+			\end{lstlisting}
+			
+			\hfill
+			
+			Export this data as CSV (not MS Excel) delimited by a comma (\texttt{,}) and with headers on.
+			
+		\subsection{Officer login statistics}
+			Student Life will also want to know how much an officer logged in and when they logged in. Run this query in phpMyAdmin:
+			
+			\hfill
+			
+			\begin{lstlisting}
+SELECT officers.clubID,
+clubs.name,
+100 * SUM(CASE WHEN officers.lastLogin IS NULL THEN 1 ELSE 0 END ) / COUNT( officers.cwid ) AS pctOfficersNeverLoggedIn,
+SUM(CASE WHEN officers.lastLogin IS NULL THEN 1 ELSE 0 END ) AS numNeverLoggedIn, COUNT( officers.cwid ) AS countOfficers
+FROM officers
+JOIN clubs ON officers.clubID = clubs.clubID
+GROUP BY officers.clubID;	
+			\end{lstlisting}
+			
+			\hfill
+			
+			Export it the same way as the Priority Point and Roster reports (CSV, comma-delimited, with headers).
+
+			
+	\section{Club Websites}
+		The club websites are managed by a system called OUCampus (otherwise known as OmniUpdate). The system is not directly managed by SGA, but rather by IT and hosted on the SGA server.
+		
+		\subsection{Managing webmasters}
+			\textit{\textbf{Note}: Please only allow one webmaster per club. Allowing multiple webmasters causes content conflict issues that are a pain to resolve.}
+		
+			\subsubsection{Creating webmasters}
+				\begin{enumerate}
+					\item{Click on the "Setup" tab, then "Users."}
+					\item{Click on the "New User" button.}
+					\item{
+						Fill out the form:
+						\begin{itemize}
+							\item{
+								OmniUpdate User Information
+								\begin{itemize}
+									\item{\textbf{Username}: \texttt{CWID@marist.edu}}
+									\item{\textbf{First name}: Webmaster's first name}
+									\item{\textbf{Last name}: Webmaster's last name}
+									\item{\textbf{Email}: \texttt{CWID@marist.edu}}
+								\end{itemize}
+							}
+							\item{
+								User Restrictions
+								\begin{itemize}
+									\item{\textbf{User Level}: "8-Designer"}
+									\item{\textbf{Approver}: "None"}
+									\item{\textbf{Toolbar}: "CSS Strict"}
+								\end{itemize}
+							}
+							\item{\textbf{\textit{Uncheck "Create Group".}}}
+						\end{itemize}
+					}
+					\item{Click "Submit".}
+				\end{enumerate}
+
+			\subsubsection{Modifying/deleting webmasters}
+				Click on the "Setup" tab, then "Users". You can edit or delete each row/user.
+		
+		\subsection{Managing clubs}
+			\subsubsection{Creating a club}
+				First, ensure that the webmaster user exists (see the \textit{Add an officer} section). Then, go through the following steps to create a new Group:
+				
+				\begin{enumerate}
+					\item{Click on the "Setup" tab, then "Group", then "New Group".}
+					\item{Enter the name of the club.}
+					\item{Add the members of the club from the list on the left.}
+					\item{Click "Submit".}
+				\end{enumerate}
+				
+				Next, create a Section of the "site".
+				
+				\begin{enumerate}
+					\item{Click on the "Content" tab, then "Pages".}
+					\item{Click on the "New" button in the top‐right corner.}
+					\item{Fill out the club information. See the notes on the right side for formatting information.}
+					\item{Click "Submit".}
+				\end{enumerate}
+				
+				You'll now need to give the correct permissions to the group you created earlier.
+				
+				\begin{enumerate}
+					\item{Click on the "Content" tab, then "Pages".}
+					\item{
+						Fill out the form:
+						\begin{itemize}
+							\item{
+								Access Settings
+								\begin{itemize}
+									\item{Check "This folder and all existing items within"}.
+									\item{Assign access to the group created earlier.}
+									\item{Set "Toolbar" to "CSS Strict".}
+									\item{Set "Template Group" to "Club Editors".}
+								\end{itemize}
+							}
+							\item{
+								Directory Variables
+								\begin{enumerate}
+									\item{Click the "New Property" button.}
+									\item{On the second line, first box, fill in the path of the folder you created (e.g., \texttt{clubname}). In the second box, put the actual club name (e.g., \texttt{Club Name}).}
+								\end{enumerate}
+							}
+						\end{itemize}
+					}
+				\end{enumerate}
+
+				Finally, you'll need to set up the PDF and image folders:
+				
+				\begin{enumerate}
+					\item{Click on the "Content" tab, then "Pages".}
+					\item{Select the appropriate club by selecting the name of club in blue.}
+					\item{Click on the "New" button.}
+					\item{Click the "New Folder" button.}
+					\item{
+						Fill out the form:
+						\begin{itemize}
+							\item{Name the folder \texttt{PDF}.}
+							\item{Leave all the boxes checked.}
+						\end{itemize}
+					}
+					\item{Click "Create".}
+					\item{Repeat steps 1-6 for the \texttt{Images} folder.}
+				\end{enumerate}
+
+	\section{SGA Website}
+		The SGA website is just a Wordpress blog and operates similarly to other Wordpress installs. Please note that you can only login through the login path (http://sga.marist.edu/home/wp-login), not the admin path.
+		
+		\subsection{Managing users}
+			It uses CAS to authenticate users, so you need to use the CAS Maestro plugin to manage users. The link is at the bottom of the left sidebar.
+
+	\section{Rollcall}
+		Rollcall is a web application that will be used by Student Government members to communicate among other SGA members and to the student body in general. It was originally created at Fanzter by Sujal Shah, Ryan Wilcox, and Ethan Turkeltaub.
+
+		Rollcall is a dashboard that displays each "team" (Executive Council, IT Council, Class of 2017, etc) and their members, along with each of their member’s latest status for that team. Of course, you can go back and see the history of each team and user to see what they've been working on, broken down into weeks. There are several benefits to having Rollcall:
+
+		\begin{itemize}
+			\item{\textbf{Transparency between the SGA and the student body}: Anyone will be able to see the dashboard and statuses of each member. It makes each SGA member more accountable to the student body, and will make it easier for the students to see who is doing what in SGA. It will also make it easier to contact the members of the SGA, since we will post the email addresses of each member on their user page.}
+			\item{\textbf{Transparency within the SGA}: A common theme among SGA members is a lack of communication between different groups. Unless you go to the weekly meetings, it would be very difficult to know what’s going on. Being able to see what everyone is doing online will greatly reduce this disconnect.}
+			\item{\textbf{Simplify board reports}: Each board member of the SGA is required to submit a board report to the President at the end of each week outlining what they’ve done this past week and what they hope to get done in the next week. Many people do not submit these board reports, since it takes a lot of time and patience. Rollcall is able to expedite this process dramatically: at the end of every week, it can collect all of a member’s (or team’s) statuses from the past week, format it into an email, and send it to the President automatically.}
+		\end{itemize}
+
+	\section{Parking Appeals}
+		The Parking Appeals system is for students to appeal parking tickets.
+		
+		\subsection{Managing justices}
+			Justices are (unfortunately) only managed through phpMyAdmin. Log in, and go to the \texttt{parkingappeals} database. Go to the \texttt{users} table.
+			
+			\subsubsection{Creating justices}
+				Click on the "Insert" tab. All you need to fill in is the \texttt{cwid}. Leave all the other fields alone.
+			
+			\subsubsection{Modifying/deleting justices}
+				Use the normal phpMyAdmin processes to edit/delete rows.
+
+	\section{Elections}
+		The current system (which you should not use) runs on Ruby on Rails. Please use the old Web Services system instead.
+		
+		Please email Web Services to begin the process about two weeks before the election. You'll need to give them a list of positions, a list of candidates, and a list of referendum questions. Make sure you proofread this information before sending it --- they take a bit to update things.
+
+	\section{Help Desk}
+		The Help Desk uses a system called osTicket. It generally will run itself. You won't need to mess with the administration area very much. Just please check it daily, at least.
+
+\chapter{Other Projects}
+	\section{\texttt{rack-cas}}
+		We have a fork of Biola University's \href{https://github.com/marist-sga/rack-cas}{\texttt{rack-cas}} RubyGem. The modifications we made include the ability to have service URLs for CAS have sub-URIs (i.e., \texttt{sga.marist.edu/elections}).
+
+	\section{\texttt{cwid}}
+		\href{https://github.com/marist-sga/cwid}{\texttt{cwid}} is a RubyGem that allows for easy access to the Marist LDAP server. See the \texttt{README} for details.
+
+\chapter{Infrastructure}
+	\section{\texttt{sga.marist.edu}}
+		\texttt{sga.marist.edu} is the main server that serves web applications. It runs SuSE, and runs Apache as a web server, MySQL as a database, with PHP 5.3.17.
+
+		\subsection{Access to the server}
+			Access is managed through the same application server as the rest of the Marist applications (using your k-account). See the outgoing CIO for details.
+
+		\subsection{Apache}
+			\subsubsection{Adding applications}
+				All applications are located in \path{/data/sga_webapps/htdocs}. Place all PHP applications there.
+
+				Next you'll need to add a block to the Apache configuration file. For example, if you're adding application \texttt{foo}, you'll need to add this block to the SGA's \texttt{VirtualHost} block at the bottom.
+
+				\begin{lstlisting}
+Alias /foo /data/sga_webapps/htdocs/foo
+<Directory "/data/sga_webapps/htdocs/foo/">
+	Options Includes FollowSymlinks Multiviews
+	AllowOverride All
+	Order allow,deny
+	Allow from all
+</Directory>
+				\end{lstlisting}
+
+
+			\subsubsection{Managing the process}
+				\begin{lstlisting}
+$ sudo /etc/init.d/apache2 [start | stop | restart | restart-graceful | reload | status]
+				\end{lstlisting}
+
+		\subsection{MySQL}
+			\subsubsection{Managing the process}
+				\begin{lstlisting}
+$ sudo /etc/init.d/mysql [start | stop | restart | status]
+				\end{lstlisting}
+
+	\section{\texttt{sga-dev.marist.edu}}
+		\texttt{sga-dev.marist.edu} is our staging server, also running SuSE. Before you push anything live to the main server, deploy it here first. It (theoretically) has an identical set up as the main server.
+
+	\section{\texttt{10.10.6.44}}
+		\texttt{10.10.6.44} is the newest server we have. It runs RHEL 6, and the plan is to provision it with Ansible. Currently it runs the following applications:
+
+			\begin{itemize}
+				\item Rollcall
+				\item Elections
+			\end{itemize}
+
+			It is running Nginx as a web server with MariaDB as the database provider. It has Ruby installed with \texttt{rbenv}.
+		
+		\subsection{Nginx}
+			\subsubsection{Managing the process}
+				\begin{lstlisting}
+$ sudo /etc/init.d/nginx [start | stop | restart | reload ]
+				\end{lstlisting}
+		\subsection{MariaDB}
+			\subsection{Managing the process}
+				\begin{lstlisting}
+$ sudo /etc/init.d/mysql [start | stop | restart | status]
+				\end{lstlisting}
+		
+		\subsection{rbenv}
+			See the rbenv GitHub project for information.
+
+
+\chapter{Resources}
+	\section{Internal Resources}
+		\subsection{Central Authentication Service (CAS)}
+			CAS is how most SGA web applications authenticate users. This is the Marist login page that iLearn, myMarist, and other Marist web applications use as well. There are various libraries out there for a multitude of platforms that allow integration of CAS authentication into web frameworks.
+
+			For Ruby on Rails applications, we use our own fork of rack-cas. This allows us to append a sub-URI onto service requests (e.g., appending \texttt{/rollcall}). For PHP, we generally either use phpCAS or laravel-cas.
+
+		\subsection{LDAP Server}
+			The LDAP server is used for looking up user information. See 1Password for the credentials.
+		
+		\subsection{phpMyAdmin}
+			phpMyAdmin (located at sga.marist.edu/phpmyadmin) is used to manage the main MySQL database. Log in with the database username and password (located in 1Password).
+
+	\section{External Resources}
+		\textit{\textbf{Note}: Access to all of these services will be provided by the outgoing CIO.}
+	
+		\subsection{1Password}
+			We use 1Password for managing passwords and other credentials. See the outgoing CIO for access information.
+
+		\subsection{New Relic}
+			New Relic is a service for monitoring applications and servers. It provides information on errors, notifies administrators of downtime, and shows performance information.
+
+		\subsection{Google Analytics}
+			Google Analytics is used for monitoring web traffic to SGA web properties.
+
+		\subsection{GitHub}
+			GitHub is used for source code hosting and version control.
+
+\chapter{Key Contacts}
+
+	\section{Marist Student Life}
+		Both of the SGA advisors (\textbf{Michele Williams} and \textbf{Pat Cordner}) are in the Student Life office. They will handle a lot of the interaction with the college administration outside of the Information Technology department.
+
+		\begin{itemize}
+			\item
+				\textbf{Michele Williams}
+				\begin{itemize}
+					\item Email: Michele.Williams@marist.edu
+				\end{itemize}
+			\item
+				\textbf{Pat Cordner}
+				\begin{itemize}
+					\item Email: Patricia.Cordner@marist.edu
+				\end{itemize}
+		\end{itemize}
+
+
+	\section{Marist Information Technology Help Desk}
+		The Marist Help Desk is familiar with the CIO role. You will need to contact the help desk while performing the following duties:
+
+		\begin{itemize}
+			\item Creating domain accounts for SGA members so that they can use the SGA office computers.
+			\item Changing email passwords for SGA and club email addresses.
+			\item Creating new email accounts for SGA or clubs.
+		\end{itemize}
+
+		\begin{itemize}
+			\item{
+				\textbf{Help Desk}
+				\begin{itemize}
+					\item Email: helpdesk@marist.edu
+					\item Phone: (845) 575-4357
+				\end{itemize}
+			}
+		\end{itemize}
+
+	\section{Marist Information Technology}
+		Marist IT are your allies — given a good reason, they'll give you any resources you need (server resources, data access, etc).
+
+		\begin{itemize}
+			\item{
+				\textbf{Jeff Kirby} is our system administrator. If you have issues with any of the servers, feel free to contact him.
+				\begin{itemize}
+					\item Email: Jeffrey.Kirby@marist.edu
+				\end{itemize}
+			}
+			\item{
+				\textbf{Kathy LaBarbera} is the manager of Client Services at IT. If you need access to anything (like the LDAP server, registrar, etc), she'll help you get access. She's a good starting point for when you're trying to get IT to help you with something.
+				\begin{itemize}
+					\item Email: Kathleen.LaBarbera@marist.edu
+				\end{itemize}
+			}
+			\item{
+				\textbf{Web Services} is a part of IT that manages Marist's web applications, including our election application. Email them to being the election process.
+				\begin{itemize}
+					\item Email: Web.Services@marist.edu
+				\end{itemize}
+			}
+		\end{itemize}
+
+
+\chapter{Common Issues}
+	\section{Applications cannot connect to MySQL}
+		The MySQL server probably went down because of IT's virus scans. Just log into the SGA server and start it again:
+		
+		\begin{lstlisting}
+sudo /etc/init.d/mysql start
+		\end{lstlisting}
+	
+	\section{Not receiving a student's record from the LDAP server}
+		For a certain subset of users, the LDAP server will not give a result for a student. This breaks a lot of our applications (for example, we can't look up their email and name for use in ClubDash).
+		
+		The way this is set up on IT's side is they have a record for each student, and an attribute stating their current status (\texttt{student} if they're a student, \texttt{employee} if they're an employee, and so on). If they have multiple roles (e.g., if they're a graduate student they'll be listed as \texttt{alumni student}, since they have graduated from the school and currently attend). The problem is in the access controls IT has in place for our data --- if the user is listed as having a role other than \texttt{student} first, we will not get the result.
+	
+		This is not an issue with our applications, but rather with IT. I'd recommend talking to them about possible solutions. In the meantime, the only solution would be manually entering the data into the database.
+
+
+\chapter{Time Frames}
+
+	\section{Yearly}
+		\begin{itemize}
+			\item{When club transition happens (usually late spring or early fall), you'll get a deluge of requests for access to ClubDash or club websites. Try and field these as quickly as you can.}
+			\item{Between the student body elections and transition, you, the Vice President of Club Affairs, and the Chief Financial Officer will need to make a presentation to the new club executive boards. You'll be expected to talk about ClubDash (allocations, officers, events, etc.) and OmniUpdate. There is a presentation in the documentation repository.}	
+		\end{itemize}
+
+
+	\section{Semesterly}
+		\begin{itemize}
+			\item{Elections are every semester, with freshman elections in the fall and student body elections in the spring. I'd \textit{highly} recommended that you use the Web Services election system instead of the SGA one. See the \textit{Future Plans} section about a new elections system.}
+			\item{Club allocations (or reallocations) are every semester. At the prompting of the CFO, go into the ClubDash settings and turn them on (see the ClubDash section for more information).}
+			\item{
+				Student Life will request some information from ClubDash every semester (see the \textit{ClubDash} section for instructions):
+				\begin{itemize}
+					\item{Priority Point and roster reports. Every semester clubs should submit to ClubDash a roster of their club members and a spreadsheet showing how many Priority Points each member received.}
+					\item{Club Evaluation data in the form of a spreadsheet.}
+					\item{Officer login data.}
+				\end{itemize}
+			}
+		\end{itemize}
+
+	\section{Monthly}
+		\begin{itemize}
+			\item{Update the software on the servers.}	
+		\end{itemize}
+
+
+	\section{Weekly}
+		\begin{itemize}
+			\item{Make a board report for the Student Body President and Executive Vice President. It usually will include what you and your board did that week, who you talked to, and then what you plan to do in the following week.}	
+			\item{There's an SGA meeting (sometimes join President's Cabinet and Senate, or just Cabinet) every Wednesday at 11am. You'll need to attend and talk about what you've done over the past week and what you'll do in the coming week.}
+			\item{The President will want all Cabinet members to do a certain number of office hours per week, probably around six. You'll need to be in the SGA office for that number of hours per week, doing SGA activities. Depending on the President, you may get away with doing less.}
+		\end{itemize}
+
+
+	\section{Daily}
+		\begin{itemize}
+			\item{Check both the \texttt{sga.itc@marist.edu} and \texttt{sga.cio@marist.edu}	emails.}
+			\item{Check the Help Desk for new tickets.}
+		\end{itemize}
+
+
+
+\chapter{Future Plans}
+
+	\section{Server Migration}
+		The plan is to migrate over from the main SuSE server to the new RHEL server. It is much easier to use, and generally more people are familiar with Red Hat versus SuSE.
+
+		The ideal scenario is to begin using \href{https://www.ansible.com/}{Ansible} to provision the server in manageable way that is able to be under version control.
+
+	\section{Volunteer Portal}
+		Part of the new responsibilities for the Vice President of Civic Engagement is to maintain the content of a portal for volunteer opportunities --- a job board, essentially. This system is not yet created, so please reach out to the Vice President of Civic Engagement for details.
+
+	\section{Petitions}
+		People in SGA (Gabi Revis and Timos Pietris) would like to start a new system to receive student feedback. It would be similar to \href{http://wtfbrown.com}{wtfbrown}. People would submit petitions, a committee would decide on the viability of the petitions, and then present them to the full board. During this process, the thread would be publicly updated.
+	
+	\section{Elections}
+		Web Services has a system set up for us to hold anonymous elections. It works fairly well, but the user interface could use some work.
+		
+		In 2016, we developed a system that had an improved user interface, but had some security issues. A new system that includes both security and a great user interface would be a good step forward.
+	
+	\section{CollegiateLink}
+		Student Life is exploring the possibility of buying software called CollegiateLink. It's software made for college student organizations, and it would replace ClubDash and our election software.
+		
+		One of the main positives is that the SGA would have to maintain and support less applications. Less complexity is better for the SGA as a whole --- it has too much of that in the first place.
+		
+		The downsides include less flexibility and price. I believe it would come out of the Student Life budget, not SGA, but it's still quite expensive.
+	
+	\section{ClubDash Improvements}
+		There's a laundry list of improvements for ClubDash that are needed or wanted by Student Life or the SGA. See the \href{https://github.com/marist-sga/clubdash/issues}{issues on GitHub} for details.
+	
+	\section{Rollcall Improvements}
+		There's also a laundry list of improvements needed for Rollcall. See the \href{https://github.com/marist-sga/rollcall/issues}{issues on GitHub} for details.
+	
+	\section{SGA Website Redesign}
+	
+	\section{Club Website Redesign}
+
+
+\end{document}
