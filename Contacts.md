@@ -7,7 +7,7 @@
 - Manager, IT Client Services
   - [Kathleen LaBarbera](mailto:kathleen.labarbera@marist.edu)
 - Manager of Web Services
-  - [Ashley Anderson](mailto:ashley.anderson1@marist.edu)
+  - [Ashley Anderson](mailto:ashley.anderson@marist.edu)
 - Marist Helpdesk
   - [helpdesk@marist.edu](mailto:helpdesk@marist.edu)
 - Web Services
