@@ -2,8 +2,8 @@
 
 ## Information Technology Documentation
 
-- **Current Author**: [Frank Siderio](https://github.com/FrankSiderio)
-- **Past Authors**: [Ethan Turkeltaub](https://github.com/eturk), [David Gunter](https://github.com/verkaufer)
+- **Current Author**: [Tom Magnusson](https://github.com/tommagnusson)
+- **Past Authors**: [Frank Siderio](https://github.com/FrankSiderio), [Ethan Turkeltaub](https://github.com/eturk), [David Gunter](https://github.com/verkaufer)
 
 ### Introduction
 
