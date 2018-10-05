@@ -1,5 +1,7 @@
 # Marist College Student Government Association
 
+## [Check out the wiki for comprehensive documentation](https://github.com/marist-sga/documentation/wiki)
+
 ## Information Technology Documentation
 
 - **Current Author**: [Tom Magnusson](https://github.com/tommagnusson)
