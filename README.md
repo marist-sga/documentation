@@ -4,8 +4,8 @@
 
 ## Information Technology Documentation
 
-- **Current Author**: [Tom Magnusson](https://github.com/tommagnusson)
-- **Past Authors**: [Frank Siderio](https://github.com/FrankSiderio), [Ethan Turkeltaub](https://github.com/eturk), [David Gunter](https://github.com/verkaufer)
+- **Current Author**: [William Kluge](https://github.com/WilliamKluge)
+- **Past Authors**: [Tom Magnusson](https://github.com/tommagnusson), [Frank Siderio](https://github.com/FrankSiderio), [Ethan Turkeltaub](https://github.com/eturk), [David Gunter](https://github.com/verkaufer)
 
 ### Introduction
 
